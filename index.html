@@ -12,7 +12,7 @@
     />
     <link href="estilos.css" rel="stylesheet" />
     <script type="module">
-      import { CreateMLCEngine } from "https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/+esm";
+      import { CreateMLCEngine } from "https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm";
 
       const $ = (el) => document.querySelector(el);
       const $form = $("form");
@@ -27,7 +27,7 @@
       let messages = [];
       let end = false;
 
-      const SELECTED_MODEL = "Llama-3-8B-Instruct-q4f32_1-MLC-1k";
+      const SELECTED_MODEL = "SmolLM2-360M-Instruct-q4f16_1-MLC";
 
       const engine = await CreateMLCEngine(SELECTED_MODEL, {
         initProgressCallback: (info) => {
