@@ -27,10 +27,11 @@
       let messages = [];
       let end = false;
 
-      const SELECTED_MODEL = "SmolLM2-360M-Instruct-q4f16_1-MLC";
+      const SELECTED_MODEL = "Llama-3.2-1B-Instruct-q4f16_1-MLC";
 
       const engine = await CreateMLCEngine(SELECTED_MODEL, {
         initProgressCallback: (info) => {
+          console.log("initProgressCallback", info);
           $info.textContent = info.text;
           if (info.progress === 1 && !end) {
             end = true;
@@ -223,8 +224,8 @@
             <div class="score-addition">+4</div>
           </div>
           <div class="best-container">
-            <p class="title">BEST</p>
-            <p class="score">66666</p>
+            <p class="title">Record</p>
+            <p class="score">0</p>
           </div>
         </div>
         <div class="game-container">
@@ -258,7 +259,7 @@
           <div class="failure-container pop-container">
             <p>:(</p>
             <p>Has perdido</p>
-            <a href="" class="restart-btn">Reiniciar</a>
+            <a href="" class="restart-btn boton-continuar">Reiniciar</a>
           </div>
           <div class="winning-container pop-container">
             <p>:)</p>
@@ -277,18 +278,82 @@
       <small>&nbsp;</small>
     </main>
     <main id="tuto" class="intro-tutorial">
-      <h2>Lorca IA</h2>
-      <h6>
-        Hola, soy una IA. Usa el chat para consultar cualquier duda que tengas
-        sobre Google Sheets y aprovechar las fórmulas disponibles. ¡Pronto se
-        incorporarán nuevas funciones!e
-      </h6>
-      <button
-        class="boton-continuar"
-        onclick="document.getElementById('tuto').style.display = 'none'"
-      >
-        Continuar ➜
-      </button>
+      <div class="max flex">
+        <h2>Lorca IA</h2>
+        <div>
+          <p>
+            👋 ¡Hola! Soy una IA local diseñada para responder a tus dudas de la
+            forma más acertada posible. Soy un proyecto en desarrollo, así que
+            puedo cometer errores ocasionalmente.
+          </p>
+        </div>
+
+        <div>
+          <h3>¿Qué significa que soy una IA local con WebLLM?</h3>
+          <p>
+            Funciono directamente en tu navegador mediante WebLLM, una librería
+            que permite ejecutar modelos de lenguaje en tu propio dispositivo
+            sin depender de servidores externos.
+          </p>
+          <p>
+            Esto significa que tus datos no salen de tu equipo, lo que garantiza
+            mayor privacidad. Además, no necesitas una conexión constante a
+            Internet, y las respuestas pueden generarse con menor latencia
+            gracias a que todo el procesamiento ocurre en local.
+          </p>
+          <p>
+            Acerco la inteligencia artificial de forma sencilla, transparente y
+            accesible, directamente desde tu navegador.
+          </p>
+        </div>
+
+        <div>
+          <p>Proyecto desarrollado por <strong>Jon Juárez</strong>.</p>
+          <ul class="redes">
+            <li>
+              <a
+                href="https://github.com/JonJuarez"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/jon-juarez/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://jonjuarez.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Portfolio</a
+              >
+            </li>
+          </ul>
+          <small>
+            Inspirado en el curso “100 proyectos de JavaScript” de Midudev.
+            Agradecimiento especial a este vídeo:
+            <a
+              href="https://www.youtube.com/watch?v=HvoiF1MCPGs&t=1s"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Midudev en YouTube</a
+            >.
+          </small>
+        </div>
+
+        <button
+          class="boton-continuar"
+          onclick="document.getElementById('tuto').style.display = 'none'"
+        >
+          Continuar ➜
+        </button>
+      </div>
     </main>
     <main class="chat">
       <div class="barra-nombre">
@@ -324,8 +389,8 @@
         </button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="86"
+          height="86"
           viewBox="0 0 24 24"
           fill="none"
         >
@@ -418,29 +483,30 @@
           </g>
           <defs>
             <clipPath id="clip0_142_331">
-              <rect width="24" height="24" rx="12" fill="white" />
+              <rect width="128" height="128" rx="12" fill="white" />
             </clipPath>
           </defs>
         </svg>
-        <h4>Lorca ᶦᵃ</h4>
+        <h1 style="color: white">Lorca ᶦᵃ</h1>
       </div>
-      <ul></ul>
-      <div class="input-chat">
-        <form class="form-chat">
-          <input
-            id="messageInput"
-            autocomplete="off"
-            placeholder="Escribe tu mensaje aquí..."
-          />
-          <button
-            disabled
-            class="chat-button"
-            title="Enviar mensaje"
-            aria-label="Enviar mensaje"
-          ></button>
-        </form>
+      <div class="max">
+        <ul></ul>
+        <div class="input-chat">
+          <form class="form-chat">
+            <input
+              id="messageInput"
+              autocomplete="off"
+              placeholder="Escribe tu mensaje aquí..."
+            />
+            <button
+              disabled
+              class="chat-button"
+              title="Enviar mensaje"
+              aria-label="Enviar mensaje"
+            ></button>
+          </form>
+        </div>
       </div>
-
       <template id="message-template">
         <li class="message">
           <span></span>

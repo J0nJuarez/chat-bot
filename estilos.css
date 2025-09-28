@@ -62,14 +62,12 @@
         padding: 0px 10px;
         box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.03);
         border-radius: 999px;
-        position: absolute;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
         width: 85%;
-        right: 5%;
-        left: 5%;
+        max-width: 750px;
         height: 45px;
         background: #ffffff;
         border: 0.5px solid rgba(0, 0, 0, 0.1);
@@ -177,6 +175,28 @@
           transform: rotate(360deg);
         }
       }
+    .redes {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding-left: 0px;
+            margin-bottom: 5px;
+    }
+    .max {
+        max-width: 530px;
+        margin: 0 auto;
+      }
+
+      .flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+
       small {
         text-align: center;
         font-size: 10px;
@@ -366,15 +386,7 @@
             }
 
             .restart-btn {
-                margin: 5px 0 0 5px;
-                float: right;
-                padding: 0 8px;
-                background: #8f7a66;
-                color: white;
-                height: 40px;
-                line-height: 40px;
-                border-radius: 3px;
-                font-weight: bold;
+                text-decoration: none;
             }
 
             h2.subtitle {
