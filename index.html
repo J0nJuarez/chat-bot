@@ -18,13 +18,19 @@
       const $form = $("form");
       const $input = $("#messageInput");
       const $template = $("#message-template");
-      const $messages = $("ul");
+      const $messages = $(".messages-chat");
       const $container = $("ul");
       const $button = $(".chat-button");
       const $info = $("small");
       const $loading = $(".loading");
 
-      let messages = [];
+      let messages = [
+        {
+          role: "system",
+          content:
+            "Eres Lorca IA, un asistente que responde de forma breve y clara en español.",
+        },
+      ];
       let end = false;
 
       const SELECTED_MODEL = "Llama-3.2-1B-Instruct-q4f16_1-MLC";
@@ -282,9 +288,9 @@
         <h2>Lorca IA</h2>
         <div>
           <p>
-            👋 ¡Hola! Soy una IA local diseñada para responder a tus dudas de la
-            forma más acertada posible. Soy un proyecto en desarrollo, así que
-            puedo cometer errores ocasionalmente.
+            ¡Hola! Soy una IA local basada en Llama-3 diseñada para responder a
+            tus dudas de la forma más acertada posible. Soy un proyecto en
+            desarrollo, así que puedo cometer errores ocasionalmente.
           </p>
         </div>
 
@@ -490,7 +496,7 @@
         <h1 style="color: white">Lorca ᶦᵃ</h1>
       </div>
       <div class="max">
-        <ul></ul>
+        <ul class="messages-chat"></ul>
         <div class="input-chat">
           <form class="form-chat">
             <input
